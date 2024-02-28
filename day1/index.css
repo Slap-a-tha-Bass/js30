@@ -16,3 +16,8 @@ body {
   border: 1px solid #000;
   border-radius: 0.25rem;
 }
+
+.highlight {
+  border-color: #ffc600 !important;
+  transform: scale(1.2);
+}
