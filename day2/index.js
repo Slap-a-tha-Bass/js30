@@ -11,6 +11,7 @@ function rotateHands() {
   const seconds = currentTime.getSeconds();
   const minutes = currentTime.getMinutes();
   const hours = currentTime.getHours();
+  console.log(seconds, minutes, hours);
 
   const secondsDegrees = (seconds / 60) * 360 + 90;
   const minutesDegrees = (minutes / 60) * 360 + 90;
@@ -19,6 +20,7 @@ function rotateHands() {
   secondsHand.style.transform = `rotate(${secondsDegrees}deg)`;
   minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
   hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
+  // TODO: add additional rotation if the minutes hand is passed 30 minutes
 }
 
 setInterval(rotateHands, 1000);
