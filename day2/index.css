@@ -14,7 +14,6 @@ body {
   box-shadow: 0 0 20px whitesmoke;
   padding: 1rem;
 }
-/* create the styles for numbers to go around the clock's face */
 .clock .number {
   position: absolute;
   top: -50%;
