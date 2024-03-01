@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: darkslateblue;
+      color: whitesmoke;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    main {
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    label {
+      display: block;
+    }
+    img {
+      max-width: 800px;
+      width: 100%;
+      margin-top: 2rem;
+      border-radius: 1rem;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  </style>
+  <body>
+    <main>
+      <h1>Updating CSS Variables with JS</h1>
+      <div class="controls">
+        <div>
+          <label for="spacing">Spacing</label>
+          <input type="range" name="spacing" id="spacing" />
+        </div>
+        <div>
+          <label for="range">Range</label>
+          <input type="range" name="blur" id="blur" />
+        </div>
+        <div>
+          <label for="color">Color</label>
+          <input type="color" name="color" id="color" />
+        </div>
+      </div>
+      <img src="image.jpg" alt="Sky image" srcset="" />
+    </main>
+  </body>
+</html>
