@@ -24,3 +24,5 @@ function rotateHands() {
 }
 
 setInterval(rotateHands, 1000);
+
+rotateHands();
