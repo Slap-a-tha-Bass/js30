@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="gallery-container">
+      <div class="images">
+        <div class="image-1">
+          <p>Image 1</p>
+        </div>
+        <div class="image-2">
+          <p>Image 2</p>
+        </div>
+        <div class="image-3">
+          <p>Image 3</p>
+        </div>
+        <div class="image-4">
+          <p>Image 4</p>
+        </div>
+        <div class="image-5">
+          <p>Image 5</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const images = document.querySelectorAll(".images > div");
+      images.forEach((image) => {
+        image.addEventListener("click", () => {
+          images.forEach((image) => {
+            image.classList.remove("active");
+          });
+          image.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
