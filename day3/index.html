@@ -6,6 +6,9 @@
     <title>Document</title>
   </head>
   <style>
+    :root {
+      --imgPadding: 1rem;
+    }
     body {
       background-color: darkslateblue;
       color: whitesmoke;
@@ -24,6 +27,7 @@
       width: 100%;
       margin-top: 2rem;
       border-radius: 1rem;
+      padding: var(--imgPadding);
     }
     .controls {
       display: flex;
@@ -39,8 +43,8 @@
           <input type="range" name="spacing" id="spacing" />
         </div>
         <div>
-          <label for="range">Range</label>
-          <input type="range" name="blur" id="blur" />
+          <label for="range">Blur</label>
+          <input type="range" name="blur" id="blur" step="10" />
         </div>
         <div>
           <label for="color">Color</label>
@@ -49,5 +53,32 @@
       </div>
       <img src="image.jpg" alt="Sky image" srcset="" />
     </main>
+
+    <script>
+      // TODO: initial page load function
+
+      const allInputs = document.querySelectorAll("input");
+      allInputs.forEach((input) => {
+        // input.addEventListener("change", cleverFunctionName);
+
+        input.addEventListener("change", function () {
+          //   console.log("input changed");
+          //   console.log(input.id);
+          console.log(input.value);
+          if (input.id === "spacing") {
+            const img = document.querySelector("img");
+            img.style.padding = `${input.value}px`;
+          }
+          if (input.id === "blur") {
+            const img = document.querySelector("img");
+            img.style.filter = `blur(${input.value}px)`;
+          }
+          if (input.id === "color") {
+            const img = document.querySelector("img");
+            img.style.backgroundColor = input.value;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
