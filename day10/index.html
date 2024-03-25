@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="checkboxes">
+      <div>
+        <input type="checkbox" id="item1" />
+        <label for="item1">Item 1</label>
+      </div>
+      <div>
+        <input type="checkbox" id="item2" />
+        <label for="item2">Item 2</label>
+      </div>
+      <div>
+        <input type="checkbox" id="item3" />
+        <label for="item3">Item 3</label>
+      </div>
+      <div>
+        <input type="checkbox" id="item4" />
+        <label for="item4">Item 4</label>
+      </div>
+      <div>
+        <input type="checkbox" id="item5" />
+        <label for="item5">Item 5</label>
+      </div>
+      <div>
+        <input type="checkbox" id="item6" />
+        <label for="item6">Item 6</label>
+      </div>
+    </div>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+      }
+      .checkboxes {
+        display: grid;
+        place-items: center;
+      }
+      .checkbox {
+        display: flex;
+      }
+    </style>
+    <script>
+      const checkboxes = document.querySelectorAll(
+        ".checkboxes input[type=checkbox]"
+      );
+      let lastChecked;
+
+      const handleCheck = (e) => {
+        let fill = false;
+        if (e.shiftKey && e.target.checked) {
+          checkboxes.forEach((checkbox) => {
+            if (checkbox === e.target || checkbox === lastChecked) {
+              fill = !fill;
+            }
+            if (fill) {
+              checkbox.checked = true;
+            }
+          });
+        }
+        lastChecked = e.target;
+      };
+
+      checkboxes.forEach((checkbox) =>
+        checkbox.addEventListener("click", handleCheck)
+      );
+    </script>
+  </body>
+</html>
