@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 contenteditable>🔥WOAH!</h1>
+    </div>
+    <style>
+      :root {
+        --shadowBlack: 5px 5px 5px black;
+      }
+      .hero {
+        background: #f0f0f0;
+        color: #333;
+        text-align: center;
+        padding: 100px;
+        margin-top: 50px;
+        text-shadow: var(--shadowBlack);
+      }
+    </style>
+    <script>
+      const hero = document.querySelector(".hero");
+
+      const updateShadow = (e) => {
+        const { offsetWidth: width, offsetHeight: height } = hero;
+        let { offsetX: x, offsetY: y } = e;
+
+        if (this !== e.target) {
+          x += e.target.offsetLeft;
+          y += e.target.offsetTop;
+        }
+
+        const xPosition = Math.round((x / width) * 15);
+        const yPosition = Math.round((y / height) * 15);
+
+        hero.style.setProperty(
+          "--shadowBlack",
+          `${xPosition}px ${yPosition}px 10px rgba(0, 0, 0, 0.5)`
+        );
+      };
+
+      //   function debounce(func, wait = 20, immediate = true) {
+      //     var timeout;
+      //     return function () {
+      //       var context = this,
+      //         args = arguments;
+      //       var later = function () {
+      //         timeout = null;
+      //         if (!immediate) func.apply(context, args);
+      //       };
+      //       var callNow = immediate && !timeout;
+      //       clearTimeout(timeout);
+      //       timeout = setTimeout(later, wait);
+      //       if (callNow) func.apply(context, args);
+      //     };
+      //   }
+
+      hero.addEventListener("mousemove", updateShadow);
+    </script>
+  </body>
+</html>
