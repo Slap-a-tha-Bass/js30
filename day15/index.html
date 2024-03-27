@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <input type="text" name="addItem" class="" required />
+        <button type="submit">Add New Item</button>
+      </div>
+      <ul></ul>
+    </form>
+    <script>
+      const form = document.querySelector("form");
+      const ul = document.querySelector("ul");
+      const initialItems = localStorage.getItem("initialItems");
+      let items = JSON.parse(initialItems) || [];
+
+      items.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+
+      const addItem = (e) => {
+        e.preventDefault();
+        const input = document.querySelector("input");
+        const li = document.createElement("li");
+        li.textContent = input.value;
+        ul.appendChild(li);
+
+        items.push(input.value);
+        localStorage.setItem("initialItems", JSON.stringify(items));
+        input.value = "";
+      };
+      const removeItem = (e) => {
+        if (e.target.tagName === "LI") {
+          e.target.remove();
+          items = items.filter((item) => item !== e.target.textContent);
+          localStorage.setItem("initialItems", JSON.stringify(items));
+        }
+      };
+
+      form.addEventListener("submit", addItem);
+      ul.addEventListener("click", removeItem);
+    </script>
+    <style>
+      form {
+        display: grid;
+        place-items: center;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      input {
+        width: 200px;
+        padding: 0.5rem;
+        border: 1px solid #000;
+        border-radius: 0.5rem;
+        margin-right: 1rem;
+      }
+      button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #000;
+        border-radius: 0.5rem;
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      li {
+        cursor: pointer;
+      }
+      li:hover {
+        text-decoration: double line-through;
+        color: red;
+      }
+    </style>
+  </body>
+</html>
