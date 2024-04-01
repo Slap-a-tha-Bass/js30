@@ -23,8 +23,6 @@
       }
     </style>
     <script>
-      const hero = document.querySelector(".hero");
-
       const updateShadow = (e) => {
         const { offsetWidth: width, offsetHeight: height } = hero;
         let { offsetX: x, offsetY: y } = e;
@@ -42,6 +40,8 @@
           `${xPosition}px ${yPosition}px 10px rgba(0, 0, 0, 0.5)`
         );
       };
+      const hero = document.querySelector(".hero");
+      hero.addEventListener("mousemove", updateShadow);
 
       //   function debounce(func, wait = 20, immediate = true) {
       //     var timeout;
@@ -58,8 +58,6 @@
       //       if (callNow) func.apply(context, args);
       //     };
       //   }
-
-      hero.addEventListener("mousemove", updateShadow);
     </script>
   </body>
 </html>
