@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>👀👀👀Follow Along Nav</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <nav>
+      <ul class="menu">
+        <li><a href="">Home</a></li>
+        <li><a href="">Order Status</a></li>
+        <li><a href="">Tweets</a></li>
+        <li><a href="">Read Our History</a></li>
+        <li><a href="">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="wrapper">
+      <p>
+        Lorem ipsum dolor sit amet,
+        <a class="body-link" href="">consectetur</a> adipisicing elit. Est
+        <a class="body-link" href="">explicabo</a> unde natus necessitatibus
+        esse obcaecati distinctio, aut itaque, qui vitae!
+      </p>
+      <p>
+        Aspernatur sapiente quae sint
+        <a class="body-link" href="">soluta</a> modi, atque praesentium laborum
+        pariatur earum <a class="body-link" href="">quaerat</a> cupiditate
+        consequuntur facilis ullam dignissimos, aperiam quam veniam.
+      </p>
+      <p>
+        Cum ipsam quod, incidunt sit ex
+        <a class="body-link" href="">tempore</a> placeat maxime
+        <a class="body-link" href="">corrupti</a> possimus
+        <a class="body-link" href="">veritatis</a> ipsum fugit recusandae est
+        doloremque? Hic, <a class="body-link" href="">quibusdam</a>, nulla.
+      </p>
+      <p>
+        Esse quibusdam, ad, ducimus cupiditate
+        <a class="body-link" href="">nulla</a>, quae magni odit
+        <a class="body-link" href="">totam</a> ut consequatur eveniet sunt quam
+        provident sapiente dicta neque quod.
+      </p>
+      <p>
+        Aliquam <a class="body-link" href="">dicta</a> sequi culpa fugiat
+        <a class="body-link" href="">consequuntur</a> pariatur optio ad minima,
+        maxime <a class="body-link" href="">odio</a>, distinctio magni impedit
+        tempore enim repellendus
+        <a class="body-link" href="">repudiandae</a> quas!
+      </p>
+    </div>
+
+    <script>
+      const triggers = document.querySelectorAll("a");
+      const highlight = document.createElement("span");
+      highlight.classList.add("highlight");
+      document.body.append(highlight);
+
+      function highlightLink() {
+        const linkCoords = this.getBoundingClientRect();
+        const coords = {
+          width: linkCoords.width,
+          height: linkCoords.height,
+          top: linkCoords.top + window.scrollY,
+          left: linkCoords.left + window.scrollX,
+        };
+
+        highlight.style.width = `${coords.width}px`;
+        highlight.style.height = `${coords.height}px`;
+        highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+      }
+
+      triggers.forEach((a) => a.addEventListener("mouseenter", highlightLink));
+    </script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      nav {
+        background: royalblue;
+        padding: 0 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 10px;
+      }
+      nav .menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        min-height: 10vh;
+      }
+      .wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .highlight {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        position: absolute;
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        display: block;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        transition: all 0.2s;
+      }
+    </style>
+  </body>
+</html>
